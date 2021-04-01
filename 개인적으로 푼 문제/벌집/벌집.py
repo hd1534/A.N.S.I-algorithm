@@ -9,7 +9,7 @@ def sol(n):
         n -= m
         m += 6
         count += 1
-    
+
     return count
 
 
