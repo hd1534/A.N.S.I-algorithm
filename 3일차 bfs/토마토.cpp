@@ -33,7 +33,7 @@ int bfs() {
         }
     }
 
-    // 벽을 기준으로 확인해보면 익지 않은 토마토가 있는지 확인 가능
+    // 비어있는 곳 기준으로 확인해보면 익지 않은 토마토가 있는지 확인 가능
     for (auto cur : toCheck) {
         for (k = 0; k < 4; k++) {
             if (arr [cur.first + di[k]][cur.second + dj[k]] == 0)
@@ -52,7 +52,7 @@ int main() {
     scanf(" %d %d", &m, &n);
 
     // 맵 만들기
-    arr.push_back(vector<int>(m + 2, -1));
+    arr.push_back(vector<int>(m + 2, -2));
     for (i = 1; i <= n; i++) {
         arr.push_back(vector<int> (1, -2));
         
@@ -67,9 +67,20 @@ int main() {
 
         arr[i].push_back(-2);
     }
-    arr.push_back(vector<int>(m + 2, -1));
+    arr.push_back(vector<int>(m + 2, -2));
+
+    if (q.empty()) {
+        printf("-1");
+        return 0;
+    }
 
     printf("%d", bfs());
+    // for (auto i : arr) {
+    //     printf("\n");
+    //     for (auto j : i) {
+    //         printf("%2d ", j);
+    //     }
+    // }
 
     return 0;
 }
