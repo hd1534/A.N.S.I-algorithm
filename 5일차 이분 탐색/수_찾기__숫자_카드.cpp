@@ -1,4 +1,6 @@
 // https://www.acmicpc.net/problem/1920
+// https://www.acmicpc.net/problem/10815 
+// 둘다 이걸로 풀린다...
 
 #include<bits/stdc++.h>
 
@@ -40,7 +42,7 @@ int main() {
     scanf(" %d", &m);
     while (m--) {
         scanf(" %d", &tmp);
-        printf("%d\n", search(tmp));
+        printf("%d ", search(tmp));
     }
 
     return 0;
