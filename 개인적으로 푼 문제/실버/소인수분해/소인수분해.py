@@ -1,4 +1,4 @@
-# https: // www.acmicpc.net/problem/11653
+# https://www.acmicpc.net/problem/11653
 
 
 def sol(n):

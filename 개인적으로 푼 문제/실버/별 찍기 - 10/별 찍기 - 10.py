@@ -1,4 +1,4 @@
-# https: // www.acmicpc.net/problem/2447
+# https://www.acmicpc.net/problem/2447
 # 사실상 시에르핀스키 카펫이다
 
 arr = [[]]
