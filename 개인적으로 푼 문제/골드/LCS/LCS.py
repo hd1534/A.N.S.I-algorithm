@@ -1,28 +1,21 @@
 # https://www.acmicpc.net/problem/9251
 
 
-def faild():
+def sol():
     str1 = input()
     str2 = input()
-    arr = []
-    dic = {chr(i): [j for j, data in enumerate(str2) if data == chr(i)]
-           for i in range(ord('A'), ord('Z')+1)}
 
-    for index, data in enumerate(str1):
-        # 연결 할 수 있는게 있는 모든 노드들을 일단 만들어서 넣어둔다.
-        for targetIdx in dic[data]:
-            arr.append(targetIdx)
+    n, m = len(str1)+1, len(str2)+1
+    arr = [[0 for _ in range(m)] for _ in range(n)]
 
-    # 가장긴 증가하는 수열
-    n = len(arr)
-    dp = [1 for _ in range(n)]
-    for start in range(n):
-        cur = arr[start]
-        for i in range(start+1, n):
-            if arr[i] > cur and dp[i] <= dp[start]:
-                dp[i] = dp[start] + 1
+    for i, c1 in enumerate(str1):
+        for j, c2 in enumerate(str2):
+            if c1 == c2:
+                arr[i+1][j+1] = arr[i][j] + 1
+            else:
+                arr[i+1][j+1] = max(arr[i+1][j], arr[i][j+1])
 
-    print(max(dp))
+    print(arr[-1][-1])
 
 
 if __name__ == "__main__":
